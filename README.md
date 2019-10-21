@@ -31,5 +31,5 @@ Now download the installer script and execute it.
 `wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh`
 
 ### Configuring ZSH
-`cp zshrc ~/.zshrc`
+`cp zshrc ~/.zshrc` <br/>
 `source ~/.zshrc`
