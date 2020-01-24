@@ -5,7 +5,7 @@ export PS1="%d %% "
 #alias gh="/Users/owner/Documents/GitHub"
 
 function gh() {
-    cd /Users/owner/Documents/GitHub/$1
+    cd $HOME/GitHub/$1
 }
 
 # Add, commit, and push in one command
@@ -25,19 +25,20 @@ export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 alias goose="$HOME/go/bin/goose"
 #export PATH=$PATH:$GOBIN
-export PATH=$HOME/bin:/usr/local/bin:$PATH:/Users/owner/Documents/chromedriver 
+export PATH=$HOME/bin:/usr/local/bin:$PATH 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/owner/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-#ZSH_THEME="agnoster"
+ZSH_THEME="afowler"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -100,6 +101,7 @@ plugins=(
   sudo
   thor
   docker
+  zsh-z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -137,8 +139,7 @@ source $ZSH/oh-my-zsh.sh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Reload the plugin to highlight the commands each time Iterm2 starts 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source $HOME/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ### VISUAL CUSTOMISATION ### 
 
@@ -181,4 +182,3 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 ####
 
 
-. /Users/owner/torch/install/bin/torch-activate
