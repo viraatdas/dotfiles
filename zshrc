@@ -1,11 +1,16 @@
 # show current directory
 export PS1="%d %% "
+prompt_context () {}
 
-# alias
-#alias gh="/Users/owner/Documents/GitHub"
-
+# Redirect to GitHub folder with folder argument
 function gh() {
-    cd $HOME/GitHub/$1
+    cd /Users/owner/Documents/GitHub/$1
+}
+
+# Compile and run Java file
+function javap() {
+    javac $1.java
+    java $1
 }
 
 # Add, commit, and push in one command
@@ -21,23 +26,66 @@ function mkdir
   command mkdir $1 && cd $1
 }
 
-export GOPATH=$HOME/go
-export GOBIN=$HOME/go/bin
+# cd aliases
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+
+# clang++ 
+alias clang++="clang++ -std=c++11"
+
+# bpython alias
+alias bpython="python -m bpython"
+
+# Bat scroll support
+export BAT_PAGER="less -RF"
+
+# MVN path
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.5.jdk/Contents/Home
+export JAVA_HOME
+
+M2_HOME=/Users/owner/Documents/apache-maven-3.6.3-bin/
+export M2_HOME
+
+export PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin
+export PATH
+
+# set Python path
+export PYTHONPATH=
+alias python="/usr/local/bin/python3"
+alias pip=/usr/local/bin/pip3
+
+# add texlive to path
+PATH=/usr/local/texlive/2020basic/bin/x86_64-darwin:$PATH
+
+export PATH="/usr/local/sbin:$PATH"
+
+# set Golang paths
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 alias goose="$HOME/go/bin/goose"
+
+# miniconda path
+export PATH=~/opt/miniconda3/condabin:$PATH
+
 #export PATH=$PATH:$GOBIN
-export PATH=$HOME/bin:/usr/local/bin:$PATH 
+export PATH=$HOME/bin:/usr/local/bin:$PATH:/Users/owner/Documents/chromedriver 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/Users/owner/.oh-my-zsh"
 
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="agnoster"
 ZSH_THEME="afowler"
+
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 
 # Set list of themes to load
@@ -106,6 +154,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+
 # User configuration
 
 
@@ -138,9 +187,6 @@ source $ZSH/oh-my-zsh.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Reload the plugin to highlight the commands each time Iterm2 starts 
-source $HOME/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 ### VISUAL CUSTOMISATION ### 
 
 # Elements options of left prompt (remove the @username context)
@@ -170,6 +216,18 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='red'
 # Add a new line after the global prompt 
 #POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
+prompt_context() {
+  local user=`whoami`
+
+  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
+    #prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)$user@%m "
+  fi
+}
+
+
+prompt_dir() {
+  prompt_segment blue $CURRENT_FG '%2~'
+}
 
 # Colorise the top Tabs of Iterm2 with the same color as background
 # Just change the 18/26/33 wich are the rgb values 
@@ -177,8 +235,5 @@ echo -e "\033]6;1;bg;red;brightness;18\a"
 echo -e "\033]6;1;bg;green;brightness;26\a"
 echo -e "\033]6;1;bg;blue;brightness;33\a"
 
-
-
-####
-
-
+# Reload the plugin to highlight the commands each time Iterm2 starts
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
