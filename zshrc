@@ -4,7 +4,7 @@ prompt_context () {}
 
 # Redirect to GitHub folder with folder argument
 function gh() {
-    cd /Users/owner/Documents/GitHub/$1
+    cd $HOME/Documents/GitHub/$1
 }
 
 # Compile and run Java file
@@ -76,7 +76,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH:/Users/owner/Documents/chromedriver
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/owner/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 
 # Set name of the theme to load. Optionally, if you set this to "random"
