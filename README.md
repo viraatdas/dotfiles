@@ -33,3 +33,6 @@ Now download the installer script and execute it.
 ### Configuring ZSH
 `cp zshrc ~/.zshrc` <br/>
 `source ~/.zshrc`
+
+### Initial Configuration
+In zshrc, configure the `SCRIPT` path

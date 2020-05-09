@@ -2,6 +2,9 @@
 export PS1="%d %% "
 prompt_context () {}
 
+# Script Directory
+SCRIPT="/usr/local/share"
+
 # Redirect to GitHub folder with folder argument
 function gh() {
     cd $HOME/Documents/GitHub/$1
@@ -236,4 +239,4 @@ echo -e "\033]6;1;bg;green;brightness;26\a"
 echo -e "\033]6;1;bg;blue;brightness;33\a"
 
 # Reload the plugin to highlight the commands each time Iterm2 starts
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $SCRIPT/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
