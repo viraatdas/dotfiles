@@ -3,7 +3,7 @@ export PS1="%d %% "
 prompt_context () {}
 
 # Script Directory
-SCRIPT="/usr/local/share"
+SCRIPT="~/.scripts"
 
 # Redirect to GitHub folder with folder argument
 function gh() {
